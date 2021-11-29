@@ -2,8 +2,8 @@ package br.com.mauraumdev.betslipworldcup.entities;
 
 import javax.persistence.*;
 
-
 @Entity
+@Table(name ="TB_TEAMS")
 public class Teams {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
