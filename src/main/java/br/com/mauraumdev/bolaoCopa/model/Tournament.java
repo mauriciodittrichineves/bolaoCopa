@@ -1,4 +1,4 @@
-package br.com.mauraumdev.betslipworldcup.entities;
+package br.com.mauraumdev.bolaoCopa.model;
 
 import javax.persistence.*;
 
