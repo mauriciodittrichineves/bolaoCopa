@@ -11,6 +11,7 @@ public class Tournament {
     private String name;
     private Integer numberOfTeams;
 
+
     public Tournament(){};
 
     public Tournament(Long idTournament, String name, Integer numberOfTeams){
