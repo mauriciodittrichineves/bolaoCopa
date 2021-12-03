@@ -19,4 +19,23 @@ public class Tournament {
         this.numberOfTeams = numberOfTeams;
     }
 
+    public Long getIdTournament() {
+        return idTournament;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getNumberOfTeams() {
+        return numberOfTeams;
+    }
+
+    public void setNumberOfTeams(Integer numberOfTeams) {
+        this.numberOfTeams = numberOfTeams;
+    }
 }

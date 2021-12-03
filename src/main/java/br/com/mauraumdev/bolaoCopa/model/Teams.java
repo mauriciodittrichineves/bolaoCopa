@@ -8,10 +8,10 @@ import javax.persistence.*;
 public class Teams {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String idTeam;
+    private long idTeam;
     private String teamName;
 
-    public Teams(String idTeam, String teamName) {
+    public Teams(Long idTeam, String teamName) {
         this.idTeam = idTeam;
         this.teamName = teamName;
     }
@@ -20,11 +20,11 @@ public class Teams {
 
     }
 
-    public String getIdTeam() {
+    public Long getIdTeam() {
         return idTeam;
     }
 
-    public void setIdTeam(String idTeam) {
+    public void setIdTeam(Long idTeam) {
         this.idTeam = idTeam;
     }
 
