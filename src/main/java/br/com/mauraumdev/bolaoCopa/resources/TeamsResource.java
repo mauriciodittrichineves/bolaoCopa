@@ -25,9 +25,9 @@ public class TeamsResource {
     public Teams selectTeam(@PathVariable(value ="id") long idTeam){
         return teamsRepository.findById(idTeam);
     }
-    @GetMapping("team/{name}")
-    public Teams selectTeams(@PathVariable(value="name")String team){
-        return teamsRepository.findByTeamName(team);
+    @GetMapping("teams{teamName}")
+    public Teams selectTeamsByName(@PathVariable(value="teamName")String teamName){
+        return teamsRepository.findByTeamName(teamName);
     }
     //Verificar pq este metodo não esta deletando
     @DeleteMapping("/teams")
