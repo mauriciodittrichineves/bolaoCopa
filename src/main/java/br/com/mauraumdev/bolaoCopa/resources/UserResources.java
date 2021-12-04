@@ -1,11 +1,11 @@
 package br.com.mauraumdev.bolaoCopa.resources;
 
-import br.com.mauraumdev.bolaoCopa.model.Teams;
 import br.com.mauraumdev.bolaoCopa.model.User;
 import br.com.mauraumdev.bolaoCopa.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -15,7 +15,7 @@ public class UserResources {
     UserRepository userRepository;
 
     @PostMapping("/user")
-    public User newUser(@RequestBody User user){ return userRepository.save(user);}
+    public User newUser(@RequestBody @Valid User user){ return userRepository.save(user);}
     @GetMapping("/user")
     public List<User> allUsers(){return userRepository.findAll();}
     @GetMapping("user/{id}")

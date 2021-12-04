@@ -1,6 +1,10 @@
 package br.com.mauraumdev.bolaoCopa.model;
 
+import org.hibernate.validator.constraints.Length;
+import org.springframework.lang.NonNull;
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+
 
 @Entity
 @Table(name ="TB_USER")
@@ -8,9 +12,12 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUser;
+    @NotBlank @Length(max = 55, min = 8)
     private String name;
     @Column(unique = true)
+    @NotBlank @Length(max = 63, min = 14)
     private String email;
+    @NotBlank
     private String password;
 
     public User(){};
