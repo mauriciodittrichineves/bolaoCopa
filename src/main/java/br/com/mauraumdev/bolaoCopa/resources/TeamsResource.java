@@ -15,21 +15,20 @@ public class TeamsResource {
     TeamsRepository teamsRepository;
 
     @GetMapping("/teams")
-    public List<TeamDto> listTeams(){
-        return TeamDto.converter(teamsRepository.findAll()) ;
-    }
+    public List<TeamDto> listTeams(){ return TeamDto.converter(teamsRepository.findAll());}
+
     @PostMapping("/teams")
     public Teams saveTeam(@RequestBody Teams teams){
         return teamsRepository.save(teams);
     }
+
     @GetMapping("teams/{id}")
     public Teams selectTeam(@PathVariable(value ="id") long idTeam){
         return teamsRepository.findById(idTeam);
     }
+
     @GetMapping("teams={teamName}")
-    public Teams selectTeamsByName(@PathVariable(value="teamName")String teamName){
-        return teamsRepository.findByTeamName(teamName);
-    }
+    public Teams selectTeamsByName(@PathVariable(value="teamName")String teamName){return teamsRepository.findByTeamName(teamName);}
     @DeleteMapping("/teams/{id}")
     public void deleteTeamById(@PathVariable(value = "id") long idTeam){
         teamsRepository.deleteById(idTeam);

@@ -5,7 +5,10 @@ import org.springframework.lang.NonNull;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
-
+ // Acredito que seguindo o SOLID, validacoes deveriam
+//estar fora dessa classe, pois essas regras podem ser encaradas
+//como algo que pode vir a ter mais regras e tornar esse codigo
+//não coeso e extremamente grande
 @Entity
 @Table(name ="TB_USER")
 public class User {
