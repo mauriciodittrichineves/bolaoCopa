@@ -1,5 +1,6 @@
 package br.com.mauraumdev.bolaoCopa.resources;
 
+import br.com.mauraumdev.bolaoCopa.dto.TeamDto;
 import br.com.mauraumdev.bolaoCopa.model.Teams;
 import br.com.mauraumdev.bolaoCopa.repository.TeamsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,8 @@ public class TeamsResource {
     TeamsRepository teamsRepository;
 
     @GetMapping("/teams")
-    public List<Teams> listTeams(){
-        return teamsRepository.findAll();
+    public List<TeamDto> listTeams(){
+        return TeamDto.converter(teamsRepository.findAll()) ;
     }
     @PostMapping("/teams")
     public Teams saveTeam(@RequestBody Teams teams){
@@ -25,14 +26,9 @@ public class TeamsResource {
     public Teams selectTeam(@PathVariable(value ="id") long idTeam){
         return teamsRepository.findById(idTeam);
     }
-    @GetMapping("teams{teamName}")
+    @GetMapping("teams={teamName}")
     public Teams selectTeamsByName(@PathVariable(value="teamName")String teamName){
         return teamsRepository.findByTeamName(teamName);
-    }
-    //Verificar pq este metodo não esta deletando
-    @DeleteMapping("/teams")
-    public void deleteTeam(Teams team){
-        teamsRepository.delete(team);
     }
     @DeleteMapping("/teams/{id}")
     public void deleteTeamById(@PathVariable(value = "id") long idTeam){

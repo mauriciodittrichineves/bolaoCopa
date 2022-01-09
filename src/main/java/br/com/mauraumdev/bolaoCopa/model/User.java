@@ -34,8 +34,6 @@ public class User {
         return idUser;
     }
 
-    public void setIdUser(Long idUser) {this.idUser = idUser;}
-
     public String getName() {
         return name;
     }
@@ -56,7 +54,4 @@ public class User {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

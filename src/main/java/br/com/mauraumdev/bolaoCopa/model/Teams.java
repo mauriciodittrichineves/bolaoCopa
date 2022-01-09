@@ -16,17 +16,12 @@ public class Teams {
         this.teamName = teamName;
     }
 
-    public Teams() {
-
-    }
+    public Teams() {}
 
     public Long getIdTeam() {
         return idTeam;
     }
 
-    public void setIdTeam(Long idTeam) {
-        this.idTeam = idTeam;
-    }
 
     public String getTeamName() {
         return teamName;
