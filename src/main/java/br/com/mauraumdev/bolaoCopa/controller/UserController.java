@@ -2,7 +2,6 @@ package br.com.mauraumdev.bolaoCopa.controller;
 
 import br.com.mauraumdev.bolaoCopa.dto.UserDto;
 import br.com.mauraumdev.bolaoCopa.model.User;
-import br.com.mauraumdev.bolaoCopa.repository.UserRepository;
 import br.com.mauraumdev.bolaoCopa.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -23,10 +22,10 @@ public class UserController {
     @GetMapping("/user")
     public List<UserDto> allUsers(){return userService.loadAllUsers();}
 
-    @GetMapping("user/{id}")
+    @GetMapping("/user/{id}")
     public User selectTeam(@PathVariable(value = "id" ) long idUser){return userService.selectUserById(idUser);}
 
-    @GetMapping("user/email={email}")
+    @GetMapping("/user/email/{email}")
     public User selectUserByEmail(@PathVariable(value = "email") String email){return userService.selectUserByEmail(email);}
 
 

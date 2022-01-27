@@ -3,7 +3,6 @@ package br.com.mauraumdev.bolaoCopa.controller;
 
 import br.com.mauraumdev.bolaoCopa.dto.TournamenDto;
 import br.com.mauraumdev.bolaoCopa.model.Tournament;
-import br.com.mauraumdev.bolaoCopa.repository.TournamentRepository;
 import br.com.mauraumdev.bolaoCopa.services.TournamentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
