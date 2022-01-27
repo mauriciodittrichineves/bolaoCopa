@@ -30,7 +30,7 @@ public class TournamenDto {
         this.numberOfTeams = numberOfTeams;
     }
 
-    public static List<TournamenDto> converter(List<Tournament> tournament){
+    public static List<TournamenDto>converter(List<Tournament> tournament){
         return tournament.stream().map(TournamenDto::new).collect(Collectors.toList());
     }
 }

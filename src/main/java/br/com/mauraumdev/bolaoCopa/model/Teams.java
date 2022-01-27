@@ -15,10 +15,9 @@ public class Teams {
         this.idTeam = idTeam;
         this.teamName = teamName;
     }
+    public Teams(){}
 
-    public Teams() {}
-
-    public Long getIdTeam() {
+   public Long getIdTeam() {
         return idTeam;
     }
 
