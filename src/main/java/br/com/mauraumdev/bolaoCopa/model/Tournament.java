@@ -1,10 +1,7 @@
 package br.com.mauraumdev.bolaoCopa.model;
 
-import br.com.mauraumdev.bolaoCopa.dto.TeamDto;
-
 import javax.persistence.*;
-import java.util.List;
-import java.util.stream.Collectors;
+
 
 @Entity
 @Table(name="TB_TOURNAMENTS")

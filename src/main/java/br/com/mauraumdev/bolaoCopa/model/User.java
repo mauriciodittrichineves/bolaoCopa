@@ -1,15 +1,8 @@
 package br.com.mauraumdev.bolaoCopa.model;
 
 import br.com.mauraumdev.bolaoCopa.validation.Validation;
-import org.hibernate.validator.constraints.Length;
-import org.springframework.lang.NonNull;
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 
- // Acredito que seguindo o SOLID, validacoes deveriam
-//estar fora dessa classe, pois essas regras podem ser encaradas
-//como algo que pode vir a ter mais regras e tornar esse codigo
-//não coeso e extremamente grande
 @Entity
 @Table(name ="TB_USER")
 public class User {
@@ -21,7 +14,6 @@ public class User {
     private String email;
     private String password;
 
-    //Para utilizar o SPRING, preciso do construtor em branco, porém para validar, se tiver o construtor em branco ele deixa passar
 
     public User(Long idUser, String name, String email, String password) {
         this.idUser = idUser;
