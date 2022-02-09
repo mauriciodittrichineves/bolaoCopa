@@ -4,13 +4,12 @@ import br.com.mauraumdev.bolaoCopa.validation.Validation;
 import javax.persistence.*;
 
 @Entity
-@Table(name ="TB_USER")
+@Table(name ="TB_USER", uniqueConstraints={@UniqueConstraint(columnNames = "email")})
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUser;
     private String name;
-    //@Column(unique = true)
     private String email;
     private String password;
 

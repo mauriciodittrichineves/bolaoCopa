@@ -1,7 +1,9 @@
 package br.com.mauraumdev.bolaoCopa.model;
 
-public class BetTable {
-    User user;
-    Tournament tournament;
-    Bet bet;
+public class BetBoard {
+    public User user;
+    public Tournament tournament;
+    public int points;
+
+
 }
