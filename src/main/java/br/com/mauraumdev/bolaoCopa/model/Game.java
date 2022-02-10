@@ -7,6 +7,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "TB_GAME")
 public class Game implements Serializable {
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     public long id;
@@ -18,8 +19,8 @@ public class Game implements Serializable {
     public Teams team2;
     public int team1Points;
     public int team2Points;
-    @ManyToOne
-    @JoinColumn(name = "idTournament")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_tournament")
     public Tournament tournament;
 
     public Game() { }

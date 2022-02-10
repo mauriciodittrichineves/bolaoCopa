@@ -21,7 +21,4 @@ public class GameService {
         Game game = gameRepository.findById(id);
         return "O jogo de hoje será pelo torneio  " + game.tournament.getName();
     }
-//    public void saveGameInTournamentTable(Game game){
-//        game.tournament.getGameTable().add(game);
-//    }
 }

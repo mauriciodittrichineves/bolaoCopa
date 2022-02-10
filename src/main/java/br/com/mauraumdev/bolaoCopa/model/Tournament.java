@@ -1,5 +1,6 @@
 package br.com.mauraumdev.bolaoCopa.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -15,11 +16,9 @@ public class Tournament implements Serializable {
     private Long idTournament;
     private String name;
     private Integer numberOfTeams;
-
-
-
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<Game> gameTable;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "tournament")
+    @JsonIgnore
+    List<Game> gameTable;
 
 
     public Tournament(){};
@@ -28,8 +27,7 @@ public class Tournament implements Serializable {
         this.idTournament = idTournament;
         this.name = name;
         this.numberOfTeams = numberOfTeams;
-
-    }
+  }
     public List<Game> getGameTable() {
         return gameTable;
     }
@@ -57,6 +55,4 @@ public class Tournament implements Serializable {
     public void setNumberOfTeams(Integer numberOfTeams) {
         this.numberOfTeams = numberOfTeams;
     }
-
-
 }
