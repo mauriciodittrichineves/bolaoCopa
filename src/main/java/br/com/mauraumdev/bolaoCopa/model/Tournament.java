@@ -19,7 +19,9 @@ public class Tournament implements Serializable {
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "tournament")
     @JsonIgnore
     List<Game> gameTable;
-
+    @ManyToMany
+    @JoinTable(name = "tournament_games", joinColumns = {@JoinColumn(name = "id_tournament")}, inverseJoinColumns = {@JoinColumn(name = "id_team")})
+    List<Teams> teamsList;
 
     public Tournament(){};
 

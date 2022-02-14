@@ -1,6 +1,7 @@
 package br.com.mauraumdev.bolaoCopa.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -17,10 +18,22 @@ public class Teams {
     }
     public Teams(){}
 
-   public Long getIdTeam() {
-        return idTeam;
+    @ManyToMany
+    @JoinTable(name = "tournament_games",joinColumns = {@JoinColumn(name = "id_team")},
+            inverseJoinColumns = {@JoinColumn(name = "id_tournament")})
+    List<Tournament> tournamentList;
+
+    public List<Tournament> getTournamentList() {
+        return tournamentList;
     }
 
+    public void setTournamentList(List<Tournament> tournamentList) {
+        this.tournamentList = tournamentList;
+    }
+
+    public Long getIdTeam() {
+        return idTeam;
+    }
 
     public String getTeamName() {
         return teamName;

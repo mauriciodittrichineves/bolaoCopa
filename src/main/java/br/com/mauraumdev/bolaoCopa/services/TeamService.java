@@ -1,6 +1,7 @@
 package br.com.mauraumdev.bolaoCopa.services;
 
 import br.com.mauraumdev.bolaoCopa.dto.TeamDto;
+import br.com.mauraumdev.bolaoCopa.dto.TournamenDto;
 import br.com.mauraumdev.bolaoCopa.repository.TeamsRepository;
 import br.com.mauraumdev.bolaoCopa.model.Teams;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,4 +34,7 @@ public class TeamService {
 
     }
 
+    public  List<TournamenDto> listTournaments(Teams teams){
+        return TournamenDto.converter(teams.getTournamentList());
+    }
 }

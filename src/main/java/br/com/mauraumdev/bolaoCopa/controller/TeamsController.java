@@ -1,6 +1,7 @@
 package br.com.mauraumdev.bolaoCopa.controller;
 
 import br.com.mauraumdev.bolaoCopa.dto.TeamDto;
+import br.com.mauraumdev.bolaoCopa.dto.TournamenDto;
 import br.com.mauraumdev.bolaoCopa.model.Teams;
 import br.com.mauraumdev.bolaoCopa.services.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,29 +9,34 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/betapi")
+@RequestMapping("/betapi/teams")
 public class TeamsController {
 
     @Autowired
     TeamService teamService;
 
-    @GetMapping("/teams")
+    @GetMapping
     public List<TeamDto> listTeams(){return teamService.listTeams();}
 
-    @PostMapping("/teams")
+    @PostMapping
     public void saveTeam(@RequestBody Teams newTeams){
         teamService.saveTeam(newTeams);
     }
 
-    @GetMapping("teams/{id}")
+    @GetMapping("/{id}")
     public Teams selectTeam(@PathVariable(value ="id") long idTeam){
         return teamService.loadTeamById(idTeam);
     }
 
-    @GetMapping("teams={teamName}")
+    @GetMapping("/={teamName}")
     public Teams selectTeamsByName(@PathVariable(value="teamName")String teamName){return teamService.loadTeamByName(teamName);}
-    @DeleteMapping("/teams/{id}")
+
+    @DeleteMapping("/{id}")
     public String deleteTeamById(@PathVariable(value = "id") long idTeam){
        return teamService.deleteTeam(idTeam);
+    }
+    @GetMapping("/tournaments/{id}")
+    public List<TournamenDto>allTournamentsForThisTeam(@PathVariable(value ="id")long idTeam){
+        return teamService.listTournaments(teamService.loadTeamById(idTeam));
     }
 }
