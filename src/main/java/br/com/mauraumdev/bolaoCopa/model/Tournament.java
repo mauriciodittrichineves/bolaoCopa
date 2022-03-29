@@ -19,15 +19,21 @@ public class Tournament implements Serializable {
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "tournament")
     @JsonIgnore
     List<Game> gameTable;
+    @ManyToMany
+    @JoinTable(name = "tournament_teams", joinColumns = {@JoinColumn(name = "id_tournament")}, inverseJoinColumns = {@JoinColumn(name = "id_team")})
+    List<Teams> teamsList;
 
+    public Tournament() {
+    }
 
-    public Tournament(){};
+    ;
 
-    public Tournament(Long idTournament, String name, Integer numberOfTeams){
+    public Tournament(Long idTournament, String name, Integer numberOfTeams) {
         this.idTournament = idTournament;
         this.name = name;
         this.numberOfTeams = numberOfTeams;
-  }
+    }
+
     public List<Game> getGameTable() {
         return gameTable;
     }

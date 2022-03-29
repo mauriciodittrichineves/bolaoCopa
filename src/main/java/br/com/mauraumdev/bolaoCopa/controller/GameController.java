@@ -1,10 +1,12 @@
 package br.com.mauraumdev.bolaoCopa.controller;
 
+import br.com.mauraumdev.bolaoCopa.dto.GameDto;
 import br.com.mauraumdev.bolaoCopa.model.Game;
 import br.com.mauraumdev.bolaoCopa.services.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -18,7 +20,7 @@ public class GameController {
     public void saveGame(@RequestBody Game game){gameService.saveGame(game);}
 
     @GetMapping
-    public List<Game> loadAllGames(){return gameService.findAllGames();}
+    public List<String> loadAllGames(){return gameService.loadAllGames();}
 
     @GetMapping("/{id}")
     public Game findGameById(@PathVariable(value = "id")long idGame){return gameService.findGameById(idGame);}
