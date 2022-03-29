@@ -21,30 +21,33 @@ public class TournamentController {
     TournamentService tournamentService;
 
     @PostMapping
-    public void saveTournament(@RequestBody Tournament tournament){tournamentService.saveTournament(tournament);}
+    public void saveTournament(@RequestBody Tournament tournament) {
+        tournamentService.saveTournament(tournament);
+    }
 
     @GetMapping
-    public List<TournamenDto> allTournament(){return tournamentService.listAllTournament();}
+    public List<TournamenDto> allTournament() {
+        return tournamentService.listAllTournament();
+    }
 
     @GetMapping("/{id}")
-    public Tournament findTournamentById(@PathVariable(value = "id")long idTournament){ return  tournamentService.findTournamentById(idTournament);}
+    public Tournament findTournamentById(@PathVariable(value = "id") long idTournament) {
+        return tournamentService.findTournamentById(idTournament);
+    }
 
     @DeleteMapping("/{id}")
-    public String deleteTournamentById(@PathVariable(value = "id") Long id){return tournamentService.deleteTournamentById(id);}
+    public String deleteTournamentById(@PathVariable(value = "id") Long id) {
+        return tournamentService.deleteTournamentById(id);
+    }
 
     @GetMapping("/name={name}")
-    public Tournament findTournamentByName(@PathVariable(value = "name")String name){return tournamentService.findTournamentByName(name);}
+    public Tournament findTournamentByName(@PathVariable(value = "name") String name) {
+        return tournamentService.findTournamentByName(name);
+    }
 
     @GetMapping("/allgames/{id}")
-    public List<String> loadAllTournamentGames(@PathVariable(value = "id")long idTournament){
-        Tournament tournament = tournamentService.findTournamentById(idTournament);
-        List<String> gamesInTournament = new ArrayList<>();
-        int gameNumber = 0;
-        while (tournament.getGameTable().size() > gameNumber){
-            gamesInTournament.add(GameDto.converteGame(tournament.getGameTable().get(gameNumber)));
-            gameNumber++;
-        }
-
-        return gamesInTournament;
+    public List<String> loadAllTournamentGames(@PathVariable(value = "id") long idTournament) {
+        return tournamentService.loadAllTournamentGames(idTournament);
     }
+
 }

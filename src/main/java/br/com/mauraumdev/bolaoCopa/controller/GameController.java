@@ -20,15 +20,7 @@ public class GameController {
     public void saveGame(@RequestBody Game game){gameService.saveGame(game);}
 
     @GetMapping
-    public List<String> loadAllGames(){
-        List<String> gamesInTournament = new ArrayList<>();
-        int runner = 0;
-        while(gameService.findAllGames().size() > runner ){
-            gamesInTournament.add(GameDto.converteGame(gameService.findAllGames().get(runner)));
-            runner++;
-        }
-        return gamesInTournament;
-    }
+    public List<String> loadAllGames(){return gameService.loadAllGames();}
 
     @GetMapping("/{id}")
     public Game findGameById(@PathVariable(value = "id")long idGame){return gameService.findGameById(idGame);}

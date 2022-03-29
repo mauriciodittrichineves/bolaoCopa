@@ -1,10 +1,19 @@
 package br.com.mauraumdev.bolaoCopa.model;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Table(name = "TB_BET")
 public class Bet {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
     public long id;
     public Game game;
     public int guessTeam1;
     public int guessTeam2;
+    private User user;
 
     public Bet(long id, Game game, int guessTeam1, int guessTeam2) {
         this.id = id;
