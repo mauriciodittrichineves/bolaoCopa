@@ -1,6 +1,7 @@
 package br.com.mauraumdev.bolaoCopa.controller;
 
 
+import br.com.mauraumdev.bolaoCopa.dto.GameDto;
 import br.com.mauraumdev.bolaoCopa.dto.TournamenDto;
 import br.com.mauraumdev.bolaoCopa.model.Game;
 import br.com.mauraumdev.bolaoCopa.model.Tournament;
@@ -35,8 +36,15 @@ public class TournamentController {
     public Tournament findTournamentByName(@PathVariable(value = "name")String name){return tournamentService.findTournamentByName(name);}
 
     @GetMapping("/allgames/{id}")
-    public List<Game> loadAllTournamentGames(@PathVariable(value = "id")long idTournament){
+    public List<String> loadAllTournamentGames(@PathVariable(value = "id")long idTournament){
         Tournament tournament = tournamentService.findTournamentById(idTournament);
-        return tournament.getGameTable();
+        List<String> gamesInTournament = new ArrayList<>();
+        int gameNumber = 0;
+        while (tournament.getGameTable().size() > gameNumber){
+            gamesInTournament.add(GameDto.converteGame(tournament.getGameTable().get(gameNumber)));
+            gameNumber++;
+        }
+
+        return gamesInTournament;
     }
 }
