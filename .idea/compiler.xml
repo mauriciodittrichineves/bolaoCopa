@@ -7,12 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="betSlipWorldCup" />
+        <module name="bolaoCopa" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="betSlipWorldCup" options="-parameters" />
+      <module name="bolaoCopa" options="-parameters" />
     </option>
   </component>
 </project>

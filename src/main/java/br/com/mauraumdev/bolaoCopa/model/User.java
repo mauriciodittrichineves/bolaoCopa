@@ -1,6 +1,9 @@
 package br.com.mauraumdev.bolaoCopa.model;
 
+import br.com.mauraumdev.bolaoCopa.services.AddressClient;
 import br.com.mauraumdev.bolaoCopa.validation.Validation;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,9 +15,13 @@ public class User {
     private String name;
     private String email;
     private String password;
+    private String cep;
 
 
-    public User(Long idUser, String name, String email, String password) {
+
+
+
+    public User(Long idUser, String name, String email, String password, String cep) {
         this.idUser = idUser;
         Validation.validateNonNullOrNoBlank(name);
         this.name = name;
@@ -22,6 +29,8 @@ public class User {
         this.email = email;
         Validation.validateNonNullOrNoBlank(password);
         this.password = password;
+        this.cep = cep;
+
     }
 
      public User() {
