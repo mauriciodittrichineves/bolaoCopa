@@ -1,5 +1,6 @@
 package br.com.mauraumdev.bolaoCopa.model;
 
+import br.com.mauraumdev.bolaoCopa.controller.AdressController;
 import br.com.mauraumdev.bolaoCopa.services.AddressClient;
 import br.com.mauraumdev.bolaoCopa.validation.Validation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ public class User {
     private String email;
     private String password;
     private String cep;
+    //private Adress adress;
 
 
 
@@ -30,6 +32,7 @@ public class User {
         Validation.validateNonNullOrNoBlank(password);
         this.password = password;
         this.cep = cep;
+        //this.adress = new Adress(cep);
 
     }
 
@@ -53,6 +56,14 @@ public class User {
     public String getEmail() {
         return email;
     }
+
+//    public Adress getAdress() {
+//        return adress;
+//    }
+//
+//    public void setAdress(Adress adress) {
+//        this.adress = adress;
+//    }
 
     public void setEmail(String email) {
         this.email = email;

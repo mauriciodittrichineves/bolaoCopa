@@ -1,28 +1,32 @@
 package br.com.mauraumdev.bolaoCopa.model;
 
-import java.util.Objects;
+import br.com.mauraumdev.bolaoCopa.services.AddressClient;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.util.Objects;
+@Table(name = "TB_ADDRESS")
 public class Adress {
+    @Id
     public String cep;
     public String logradouro;
     public String bairro;
     public String localidade;
     public String uf;
-    public String ibge;
-    public String gia;
-    public int ddd;
-    public int siafi;
 
-    public Adress(String cep, String logradouro, String bairro, String localidade, String uf, String ibge, String gia, int ddd, int siafi) {
+    @Autowired
+    AddressClient addressClient;
+
+
+    public Adress(String cep) {
         this.cep = cep;
-        this.logradouro = logradouro;
-        this.bairro = bairro;
-        this.localidade = localidade;
-        this.uf = uf;
-        this.ibge = ibge;
-        this.gia = gia;
-        this.ddd = ddd;
-        this.siafi = siafi;
+        //var postAddress = addressClient.findByCep(cep);
+        //this.localidade = postAddress.getBody().getLocalidade();
+        //this.bairro = postAddress.getBody().getBairro();
+        //this.logradouro = postAddress.getBody().getLogradouro();
+       // this.uf = postAddress.getBody().getUf();
+
     }
 
     public Adress() {
@@ -69,63 +73,29 @@ public class Adress {
         this.uf = uf;
     }
 
-    public String getIbge() {
-        return ibge;
-    }
-
-    public void setIbge(String ibge) {
-        this.ibge = ibge;
-    }
-
-    public String getGia() {
-        return gia;
-    }
-
-    public void setGia(String gia) {
-        this.gia = gia;
-    }
-
-    public int getDdd() {
-        return ddd;
-    }
-
-    public void setDdd(int ddd) {
-        this.ddd = ddd;
-    }
-
-    public int getSiafi() {
-        return siafi;
-    }
-
-    public void setSiafi(int siafi) {
-        this.siafi = siafi;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Adress adress = (Adress) o;
-        return ddd == adress.ddd && siafi == adress.siafi && Objects.equals(cep, adress.cep) && Objects.equals(logradouro, adress.logradouro) && Objects.equals(bairro, adress.bairro) && Objects.equals(localidade, adress.localidade) && Objects.equals(uf, adress.uf) && Objects.equals(ibge, adress.ibge) && Objects.equals(gia, adress.gia);
+        return Objects.equals(cep, adress.cep) && Objects.equals(logradouro, adress.logradouro) && Objects.equals(bairro, adress.bairro) && Objects.equals(localidade, adress.localidade) && Objects.equals(uf, adress.uf);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(cep, logradouro, bairro, localidade, uf, ibge, gia, ddd, siafi);
+        return Objects.hash(cep, logradouro, bairro, localidade, uf);
     }
 
     @Override
     public String toString() {
+
         return "Adress{" +
                 "cep='" + cep + '\'' +
                 ", logradouro='" + logradouro + '\'' +
                 ", bairro='" + bairro + '\'' +
                 ", localidade='" + localidade + '\'' +
                 ", uf='" + uf + '\'' +
-                ", ibge='" + ibge + '\'' +
-                ", gia='" + gia + '\'' +
-                ", ddd=" + ddd +
-                ", siafi=" + siafi +
                 '}';
     }
 }

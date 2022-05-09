@@ -1,6 +1,8 @@
 package br.com.mauraumdev.bolaoCopa.services;
 
+import br.com.mauraumdev.bolaoCopa.dto.AdressDto;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -8,5 +10,5 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface AddressClient {
 
     @GetMapping(path = "/{cep}/json")
-   Object findByCep(@RequestParam("cep") Object document);
+    ResponseEntity<AdressDto> findByCep(@RequestParam("cep") String document);
 }
