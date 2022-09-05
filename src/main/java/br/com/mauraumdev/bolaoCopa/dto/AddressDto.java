@@ -4,10 +4,9 @@ package br.com.mauraumdev.bolaoCopa.dto;
 import br.com.mauraumdev.bolaoCopa.model.Adress;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 
 @Mapper
-public class AdressDto {
+public class AddressDto {
     @JsonProperty("logradouro")
     private String logradouro;
     @JsonProperty("cep")
@@ -19,10 +18,10 @@ public class AdressDto {
     @JsonProperty("uf")
     private String uf;
 
-    public AdressDto() {
+    public AddressDto() {
     }
 
-    public AdressDto(Adress adress){
+    public AddressDto(Adress adress){
 
     }
 

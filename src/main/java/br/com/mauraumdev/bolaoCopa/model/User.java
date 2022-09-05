@@ -1,9 +1,6 @@
 package br.com.mauraumdev.bolaoCopa.model;
 
-import br.com.mauraumdev.bolaoCopa.controller.AdressController;
-import br.com.mauraumdev.bolaoCopa.services.AddressClient;
 import br.com.mauraumdev.bolaoCopa.validation.Validation;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 

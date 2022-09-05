@@ -30,4 +30,12 @@ public class GameService {
         }
         return gamesInTournament;
     }
+    public void insertResultGame(long idGame, int team1points, int team2points){
+        System.out.println("3");
+        Game gameResult = findGameById(idGame);
+        System.out.println("4");
+        gameResult.setTeam1Points(team1points);
+        gameResult.setTeam2Points(team2points);
+        saveGame(gameResult);
+    }
 }
