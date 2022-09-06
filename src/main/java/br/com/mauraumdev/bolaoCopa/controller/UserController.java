@@ -27,11 +27,14 @@ public class UserController {
     @GetMapping("/user")
     public List<UserDto> allUsers(){return userService.loadAllUsers();}
 
+
     @GetMapping("/user/{id}")
     public User selectById(@PathVariable(value = "id" ) long idUser){return userService.selectUserById(idUser);}
 
+
     @GetMapping("/user/email/{email}")
     public User selectUserByEmail(@PathVariable(value = "email") String email){return userService.selectUserByEmail(email);}
+
 
     @DeleteMapping("/user/{id}")
     public String deleteUserById(@PathVariable(value = "id")long idUser){return userService.deleteUserById(idUser);}
